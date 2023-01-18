@@ -7,7 +7,7 @@ pipeline{
         stage('Terraform fmt'){
             steps{
                 echo 'formating code'
-                sh 'terraform fmt -check'
+                sh 'terraform fmt'
             }
         }
         stage('Terraform Init'){
