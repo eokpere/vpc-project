@@ -14,7 +14,7 @@ pipeline{
             steps{
                 echo 'initializing'
                 sh 'date'
-                sh 'terraform init -auto-color'
+                sh 'terraform init'
             }
         }
         stage('Terraform validate'){
