@@ -4,14 +4,17 @@ pipeline{
         terraform 'terraform1.3.7'
     }
     stages{
-        stage('git checkout'){
+        stage('Terraform fmt'){
             steps{
-                git branch: 'main', credentialsId: '44ca5028-2103-4d6d-93a2-d249fad8cda6', url: 'https://github.com/eokpere/vpc-project'
+                echo 'formating code'
+                sh 'terraform fmt -check'
             }
         }
         stage('Terraform Init'){
             steps{
-                sh 'terraform init'
+                echo 'initializing'
+                sh 'date'
+                sh 'terraform init -auto-color'
             }
         }
         stage('Terraform validate'){
